@@ -1,0 +1,21 @@
+<div [style.direction]="'rtl'">
+    <h1>שיעורי בית אודיה דדון</h1>
+
+    <!-- בלחיצה על כפתור הצג עובדים יוצגו כל שמות העובדים -->
+    <input (click)="setShowWorkers()" type="button" [(ngModel)]="textOfB1"/>
+            <ul *ngIf="showWorkers==true">
+                <li *ngFor="let w of workers">
+                    {{w.name}}
+                </li>
+            </ul>
+
+    <!-- בלחיצה על כפתור הצג תפקידים יוצגו כל התפקידים הקיימים, עם השכר הממוצע לכל תפקיד -->
+    <input (click)="setShowRols(); avgForRols()" type="button" [(ngModel)]="textOfB2"/>
+    <ul *ngIf="showRols==true">
+        <li *ngFor="let r of rols; let i = index">
+            {{r.description}}
+            ממוצע שכר:
+            {{arrayAvg[i]}}
+        </li>
+    </ul>
+</div>
